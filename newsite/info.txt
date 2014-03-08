@@ -1,0 +1,8 @@
+admin
+changli@usc.edu
+combinationalfeedback
+
+https://docs.djangoproject.com/en/1.6/intro/tutorial01/
+Running the server:
+python manage.py runserver
+http://127.0.0.1:8000/admin
