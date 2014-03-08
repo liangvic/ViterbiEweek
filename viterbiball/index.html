@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <body>
+    {% for greeting in greetings %}
+      {% if greeting.email %}
+        <b>{{ greeting.email.nickname() }}</b> wrote:
+      {% else %}
+       An anonymous person wrote:
+      {% endif %}
+      <blockquote>{{ greeting.name }}</blockquote>
+	  <blockquote>{{ greeting.uscid}}</blockquote>
+	  <blockquote>{{ greeting.major}}</blockquote>
+	  <blockquote>{{ greeting.year }}</blockquote>
+
+    {% endfor %}
+
+    <form action="/sign?salesbook_name={{ salesbook_name }}" method="post">
+      <div><textarea name="name" rows="1" cols="20"></textarea></div>
+      <div><textarea name="uscid" rows="1" cols"20"></textarea></div>
+      <div><textarea name="major" rows="1" cols"20"></textarea></div>
+      <div><textarea name="year" rows="1" cols"20"></textarea></div>
+      <div><input type="submit" value="Add Student"></div>
+    </form>
+
+    <hr>
+
+    <form>Salesbook name:
+      <input value="{{ salesbook_name }}" name="salesbook_name">
+      <input type="submit" value="switch">
+    </form>
+
+    <a href="{{ url|safe }}">{{ url_linktext }}</a>
+
+  </body>
+</html>
+{% endautoescape %}
