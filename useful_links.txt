@@ -1,0 +1,2 @@
+https://developers.google.com/appengine/docs/python/gettingstartedpython27/handlingforms
+https://developers.google.com/appengine/docs/python/gettingstartedpython27/usingdatastore
