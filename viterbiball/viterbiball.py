@@ -29,7 +29,7 @@ def salesbook_key(salesbook_name=DEFAULT_SALESBOOK_NAME):
 
 
 class Student(ndb.Model):
-    """Models an individual Salesbook entry with email, name, and date."""
+    """Models an individual Salesbook entry with email, name, USC id, and date."""
     email = ndb.StringProperty(indexed=False)
     name = ndb.StringProperty(indexed=False)
     uscid = ndb.StringProperty(indexed=False)
@@ -46,18 +46,9 @@ class MainPage(webapp2.RequestHandler):
             ancestor=salesbook_key(salesbook_name)).order(-Student.date)
         students = students_query.fetch(10)
 
-        if users.get_current_user():
-            url = users.create_logout_url(self.request.uri)
-            url_linktext = 'Logout'
-        else:
-            url = users.create_login_url(self.request.uri)
-            url_linktext = 'Login'
-
         template_values = {
             'students': students,
             'salesbook_name': urllib.quote_plus(salesbook_name),
-            'url': url,
-            'url_linktext': url_linktext,
         }
 
         template = JINJA_ENVIRONMENT.get_template('frontpage.html')

@@ -49,17 +49,39 @@
                   <form role="form" action="/register?salesbook_name={{ salesbook_name }}" method="post">
                      <div class="form-group">
                       <label for="nameInput">Name</label>
-                      <input name="name" type="name" class="form-control" id="nameInput" placeholder="Full Name">
+                      <input name="name" type="name" class="form-control" id="nameInput" placeholder="Full Name" required>
                     </div>
                     <div class="form-group">
                       <label for="emailInput">Email address</label>
-                      <input type="email" class="form-control" id="emailInput" placeholder="USC email">
+                      <input name="email" type="email" class="form-control" id="emailInput" placeholder="USC email" required>
                     </div>
-                   
                     <div class="form-group">
                       <label for="idInput">Student ID</label>
-                      <input name="uscid" type="id" class="form-control" id="idInput" placeholder="USC ID">
+                      <input name="uscid" type="uscid" class="form-control" id="idInput" placeholder="USC ID" required>
                     </div>
+					<div class="form-group">
+					  <label for="yearInput">Year</label>
+					  <select name="year" type="year" class="form-control" id="yearInput" required>
+					    <option value="">Select your year</option>
+					    <option value="freshman">Freshman</option>
+						<option value="sophomore">Sophomore</option>
+						<option value="junior">Junior</option>
+						<option value="senior">Senior</option>
+					  </select>
+					</div>
+					<div class="form-group">
+					  <label for="majorInput">Major</label>
+					  <select name="major" type="major" class="form-control" id="majorInput" required>
+					    <option value="">Select your major</option>
+						<option value="ee">EE</option>
+					    <option value="csci">CSCI</option>
+					    <option value="csgames">CSGames</option>
+					    <option value="cecs">CECS</option>
+					    <option value="csba">CSBA</option>
+					    <option value="bme">BME</option>
+					    <option value="ise">ISE</option>
+					  </select>
+					</div>
 
                     <div>
 					  <button type="submit" class="btn btn-default">Submit</button>
@@ -211,13 +233,9 @@
 
 
 	{% for student in students %}
-    {% if student.email %}
-	  <b>{{ student.email.nickname() }}</b> wrote:
-    {% else %}
-	  An anonymous person wrote:
-    {% endif %}
-	  <br>{{ student.name }}<br>
-	  {{ student.uscid}}<br>
+	  <br>{{ student.email }}
+	  <br>{{ student.name }}
+	  <br>{{ student.uscid}}<br>
     {% endfor %}
 
   </body>
