@@ -1,0 +1,5 @@
+## python compiler files
+*.pyc
+
+## Mac OS generated files
+*.DS_Store
