@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
+    rel="stylesheet">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	<script>
+         function displayMissing()
+         { 
+			if(document.getElementById("missing").style.visibility == 'hidden'){
+				document.getElementById("missing").style.visibility = 'visible';
+			}
+			else{
+				document.getElementById("missing").style.visibility = 'hidden';
+			}
+         }
+		 
+		 function displayChecks()
+         { 
+			if(document.getElementById("checks").style.visibility == 'hidden'){
+				document.getElementById("checks").style.visibility = 'visible';
+			}
+			else{
+				document.getElementById("checks").style.visibility = 'hidden';
+			}
+         }
+    </script>
+  </head>
+  
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11">
+          <h1 class="text-center">Admin page</h1>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+            <h2  class = "bg-primary text-center">Summary</h2>
+            <p>Total tickets sold:</p>
+            <p>Total tickets remaining:</p>
+            <p>Cash total:</p>
+            <p>Check total:</p>
+        </div>
+
+        <div class="col-lg-4 col-md-offset-3">
+          <h2 class = "bg-primary text-center">Search</h2>
+            <form role="form" action="" method="post">
+                <div class="form-group form-horizontal">
+                    <input name="name" type="name" class="form-control" id="nameInput" placeholder="Full Name">
+                </div>
+				<div>
+				  <button type="submit" class="btn btn-default">Submit</button>
+				</div>
+            </form>
+       </div>
+	</div>
+	<div class="row text-center">
+		<div class = "col-lg-3 col-md-offset-4">
+		<button type="button" class="btn btn-primary btn-block" onclick="displayMissing()">Unsigned Waivers and Unpaid Accounts</button>
+		</div>
+	</div>
+	<div class="row text-center">
+		<div class = "col-lg-3 col-md-offset-4">
+		<button type="button" class="btn btn-primary btn-block" onclick="displayChecks()">Paid Checks</button>
+		</div>
+	</div>
+	<div class="row">
+		<div id="missing" class="col-lg-7" style="visibility:hidden;">
+            <h2  class = "bg-primary text-center">Unsigned Waivers and Unpaid Accounts:</h2>
+            <table class = "table table-hover table-condensed table-bordered">
+				<tr>
+					<th>Viterbi Name</td>
+					<th>Viterbi Email</td>
+					<th>Guest Name</td>
+					<th>Guest Email</td>
+					<th>Unsigned Waiver</td>
+					<th>Unpaid Account</td>
+				</tr>
+				<tr>
+					<td>Tommy Trojan</td>
+					<td>ttrojan@usc.edu</td>
+					<td>N/A</td>
+					<td>N/A</td>
+					<td>Viterbi/Guest/Both</td>
+					<td>Viterbi/Guest/Both</td>
+				</tr>
+			</table>
+        </div>
+	
+		<div id="checks" class="col-lg-4" style="visibility:hidden;">
+            <h2  class = "bg-primary text-center">Paid Checks:</h2>
+            <table class = "table table-hover table-condensed table-bordered">
+				<tr>
+					<th>Name</td>
+					<th>Email</td>
+					<th>Check No.</td>
+					<th>Date</td>
+				</tr>
+				<tr>
+					<td>Tommy Trojan</td>
+					<td>ttrojan@usc.edu</td>
+					<td>1234</td>
+					<td>3/9/14</td>
+				</tr>
+			</table>
+        </div>
+	</div>
+	   
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+  </body>
+
+</html>
