@@ -76,7 +76,7 @@ class Salesbook(webapp2.RequestHandler):
                                           DEFAULT_SALESBOOK_NAME)
         student = Student(parent=salesbook_key(salesbook_name))
 			
-		#student.email = self.request.get('email')
+		student.email = self.request.get('email')
         student.name = self.request.get('name')
         student.uscid = self.request.get('id')
         student.put()
