@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% autoescape true %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -52,7 +53,7 @@
                     </div>
                     <div class="form-group">
                       <label for="emailInput">Email address</label>
-                      <input name="email" class="form-control" id="emailInput" placeholder="USC email">
+                      <input type="email" class="form-control" id="emailInput" placeholder="USC email">
                     </div>
                    
                     <div class="form-group">
@@ -202,7 +203,6 @@
 	
 	
 	
-
 	
 	
 	
@@ -219,7 +219,7 @@
 	  <br>{{ student.name }}<br>
 	  {{ student.uscid}}<br>
     {% endfor %}
->>>>>>> e8e67b971563cc078cc65865ca02469a927ac923
 
   </body>
 </html>
+{% endautoescape %}
