@@ -28,10 +28,10 @@
 
       <!-- Jumbotron -->
       <div class="jumbotron text-center">
-         <h1 >Viterbi Ball    </h1>
-         <h2>  <small> Day 5 of E-Week </small> </h2> 
+         <h1> Viterbi Ball </h1>
+         <h2> <small> E-Week 2015 </small> </h2> 
 
-        <p class="lead">The gosh darned tootin-est event of the semester!</p>
+        <p class="lead"> A formal dance for Viterbi Undergraduates </p>
         <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">
           Sign up for Tickets!
         </button>
@@ -44,11 +44,11 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="myModalLabel">Modal title</h4>
               </div>
-              <div class="modal-body">
-                  <form role="form">
+              <div class="modal-body">			  
+                  <form role="form" action="/register?salesbook_name={{ salesbook_name }}" method="post">
                      <div class="form-group">
                       <label for="nameInput">Name</label>
-                      <input type="name" class="form-control" id="nameInput" placeholder="Full Name">
+                      <input name="name" type="name" class="form-control" id="nameInput" placeholder="Full Name">
                     </div>
                     <div class="form-group">
                       <label for="emailInput">Email address</label>
@@ -57,10 +57,12 @@
                    
                     <div class="form-group">
                       <label for="idInput">Student ID</label>
-                      <input type="id" class="form-control" id="idInput" placeholder="USC ID">
+                      <input name="uscid" type="id" class="form-control" id="idInput" placeholder="USC ID">
                     </div>
 
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <div>
+					  <button type="submit" class="btn btn-default">Submit</button>
+					</div>
                   </form>
               </div>
             </div>
@@ -73,9 +75,9 @@
       <div class="row">
         <div class="col-lg-4">
             <h2  class = "bg-primary text-center">The Low Down</h2>
-            <p class = "text-center text-danger"> When: x</p>
-            <p class = "text-center text-danger"> Where: </p>
-            <p class = "text-center text-danger"> Price: </p>
+            <p class = "text-center text-danger"> When: Spring 2015</p>
+            <p class = "text-center text-danger"> Where: Secret Location</p>
+            <p class = "text-center text-danger"> Price: $$ </p>
 
             <div class="panel panel-default">
               <div class="panel-heading">
@@ -83,9 +85,52 @@
                     Event Description
                 </h4>
               </div>
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
               <div id="collapseOne" class="panel-collapse collapse in">
                 <div class="panel-body">
-                  <p> Come enjoy a night of fun with your best friends as we celebrate the end of E week with a formal dance at a top secret location! </p>
+                  <p> Viterbi Ball is a formal dance planned by Viterbi Undergraduates for Viterbi Undergraduates. Celebrate the end of E-Week by hitting the dance floor with your fellow engineers at a top secret location! </p>
                   <p> Check-in starts at 8:00pm</p>
                   <p> Dance lasts from 9:00pm to 1:00am</p>
                   <p> Dress code is semi-formal </p>
@@ -109,7 +154,7 @@
               <div id="collapseOne" class="panel-collapse collapse in">
                 <div class="panel-body">
                  <p> 1) Sign up via link above</p>
-                 <p> 2) Confirm email and then fill out ticket payment information </p>
+                 <p> 2) Confirm email and then fill out ticket information </p>
                  <p> 3) E-sign your waiver and drop payment in RTH 232 </p>
                  <p> 4) Get psyched! </p>
 
@@ -131,7 +176,7 @@
               <div id="collapseOne" class="panel-collapse collapse in">
                 <div class="panel-body">
                  <p> You can only buy 1 guest ticket </p>
-                 <p> If you refund your ticket, your guest ticket will be considered forfeit as well </p>
+                 <p> If you refund your ticket, your guest ticket will be considered refund with it as well </p>
                  <p> </p>
 
                 </div>
@@ -158,8 +203,23 @@
 	
 	
 
-    <hr>
+	
+	
+	
+	
+	
 
+
+	{% for student in students %}
+    {% if student.email %}
+	  <b>{{ student.email.nickname() }}</b> wrote:
+    {% else %}
+	  An anonymous person wrote:
+    {% endif %}
+	  <br>{{ student.name }}<br>
+	  {{ student.uscid}}<br>
+    {% endfor %}
+>>>>>>> e8e67b971563cc078cc65865ca02469a927ac923
 
   </body>
 </html>

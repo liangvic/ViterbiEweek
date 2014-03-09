@@ -4,6 +4,7 @@ import urllib
 
 from google.appengine.api import users
 from google.appengine.ext import ndb
+from google.appengine.api import mail
 
 import jinja2
 import webapp2
@@ -29,6 +30,7 @@ def salesbook_key(salesbook_name=DEFAULT_SALESBOOK_NAME):
 
 
 class Student(ndb.Model):
+<<<<<<< HEAD
 	#"Models an individual Salesbook entry with email, name, and date."
 	email = ndb.UserProperty()
 	name = ndb.StringProperty(indexed=False)
@@ -36,6 +38,13 @@ class Student(ndb.Model):
 	major = ndb.StringProperty(indexed=False)
 	year = ndb.StringProperty(indexed=False)
 	date = ndb.DateTimeProperty(auto_now_add=True)
+=======
+    """Models an individual Salesbook entry with email, name, and date."""
+    email = ndb.StringProperty(indexed=False)
+    name = ndb.StringProperty(indexed=False)
+    uscid = ndb.StringProperty(indexed=False)
+    date = ndb.DateTimeProperty(auto_now_add=True)
+>>>>>>> e8e67b971563cc078cc65865ca02469a927ac923
 
 
 
@@ -76,6 +85,7 @@ class Salesbook(webapp2.RequestHandler):
 		# should be limited to ~1/second.
 		salesbook_name = self.request.get('salesbook_name',
                                           DEFAULT_SALESBOOK_NAME)
+<<<<<<< HEAD
 		student = Student(parent=salesbook_key(salesbook_name))
 
 		if users.get_current_user():
@@ -86,12 +96,21 @@ class Salesbook(webapp2.RequestHandler):
 		student.major = self.request.get('major')
 		student.year = self.request.get('year')
 		student.put()
+=======
+        student = Student(parent=salesbook_key(salesbook_name))
+			
+		#student.email = self.request.get('email')
+        student.name = self.request.get('name')
+        student.uscid = self.request.get('id')
+        student.put()
+>>>>>>> e8e67b971563cc078cc65865ca02469a927ac923
 
 		query_params = {'salesbook_name': salesbook_name}
 		self.redirect('/?' + urllib.urlencode(query_params))
 
 
 application = webapp2.WSGIApplication([
-	('/', MainPage),
-	('/sign', Salesbook),
+    ('/', MainPage),
+    ('/register', Salesbook),
+>>>>>>> e8e67b971563cc078cc65865ca02469a927ac923
 ], debug=True)
