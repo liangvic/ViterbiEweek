@@ -33,6 +33,8 @@ class Student(ndb.Model):
     email = ndb.StringProperty(indexed=False)
     name = ndb.StringProperty(indexed=False)
     uscid = ndb.StringProperty(indexed=False)
+    major = ndb.StringProperty(indexed=False)
+    year = ndb.StringProperty(indexed=False)
     date = ndb.DateTimeProperty(auto_now_add=True)
 
 
@@ -79,6 +81,8 @@ class Salesbook(webapp2.RequestHandler):
 		#student.email = self.request.get('email')
         student.name = self.request.get('name')
         student.uscid = self.request.get('id')
+        student.major = self.request.get('major')
+        student.year = self.request.get('year')
         student.put()
 
         query_params = {'salesbook_name': salesbook_name}

@@ -43,7 +43,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <h4 class="modal-title" id="myModalLabel">Register</h4>
               </div>
               <div class="modal-body">			  
                   <form role="form" action="/register?salesbook_name={{ salesbook_name }}" method="post">
@@ -61,8 +61,30 @@
                       <input name="uscid" type="id" class="form-control" id="idInput" placeholder="USC ID">
                     </div>
 
+                    <div class="form-group">
+                      <label for="majorInput">Major</label>
+                      <select name="major" class="form-control">
+                        <option>BME</option>
+                        <option>CSBA</option>
+                        <option>CECS</option>
+                        <option>CSCI</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="majorInput">Year</label>
+                      <select class="form-control" name="year">
+                        <option>Freshman</option>
+                        <option>Sophomore</option>
+                        <option>Junior</option>
+                        <option>Senior</option>
+                        <option>Grad</option>
+                      </select>
+                    </div>
+
                     <div>
-					  <button type="submit" class="btn btn-default">Submit</button>
+					  <button type="submit" class="btn btn-default" data-toggle="modal" data-target="confirmModal">Submit</button>
+            
 					</div>
                   </form>
               </div>
@@ -177,6 +199,7 @@
     {% endif %}
 	  <br>{{ student.name }}<br>
 	  {{ student.uscid}}<br>
+    {{ student.year }}{{ student.major }}{{ student.uscid }}
     {% endfor %}
 
   </body>
